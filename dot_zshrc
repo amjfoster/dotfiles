@@ -1,0 +1,36 @@
+## [ Aliases ]
+alias vi='nvim'
+alias vim='nvim'
+alias vimdiff='nvim -d'
+
+## [ Opts ]
+setopt autocd
+setopt append_history share_history histignorealldups
+
+## [ Env Vars ]
+export ZSHPLUGDIR="$HOME/.zsh_plugins"
+export EDITOR="nvim"
+export PYENV_ROOT="$HOME/.pyenv"
+
+## [ Keybinds ]
+bindkey "\e[1;3D" backward-word # ⌥←
+bindkey "\e[1;3C" forward-word # ⌥→
+
+## [ Plugins ]
+# zsh-autocomplete: auto-completion of commands in terminal
+source $ZSHPLUGDIR/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+# jq
+source $ZSHPLUGDIR/jq-zsh-plugin/jq.plugin.zsh
+
+# zsh-syntax-highlighting: syntax highlighting in terminal
+source $ZSHPLUGDIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+## [ Pre ]
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# oh-my-posh theming
+if [ $TERM_PROGRAM != "Apple_Terminal" ]; then
+  eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/zash.omp.json)"
+fi

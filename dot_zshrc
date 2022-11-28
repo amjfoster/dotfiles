@@ -27,6 +27,11 @@ source $ZSHPLUGDIR/jq-zsh-plugin/jq.plugin.zsh
 source $ZSHPLUGDIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ## [ Pre ]
+
+# add custom zsh functions path
+fpath+=~/.zfunc
+
+# pyenv init
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 

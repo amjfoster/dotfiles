@@ -58,5 +58,8 @@ return require('packer').startup(function(use)
     -- use 'RRethy/nvim-base16'
     use 'folke/tokyonight.nvim'
 
+    -- extras
+    use 'rust-lang/rust.vim'
+
 end
 )
